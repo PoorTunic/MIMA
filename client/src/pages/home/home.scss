@@ -1,0 +1,10 @@
+page-home {
+  ion-input, ion-input::placeholder {
+  color: #000000;
+  }
+  #map_canvas{
+    display: block;
+    height: 55%;
+    width: 80%;
+  }   
+}

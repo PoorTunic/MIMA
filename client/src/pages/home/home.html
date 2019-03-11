@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Rechercher votre hôtel d'arrivée</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form (ngSubmit)="onSubmit()" margin>
+    <ion-item>
+      <ion-label color="dark">Nom d'hôtel : </ion-label>
+      <ion-input type="text" name="nameHotel" [(ngModel)]="nameHotel" (ionChange)="searchHotel()" placeholder="Ex. Carquefeu"></ion-input>
+    </ion-item>
+  </form>
+
+  <ion-card *ngIf="hotels != null || hotels.lenght > 0; else noHotel">
+    <ion-list *ngFor="let hotel of hotels">
+      <ion-row>
+        <ion-col>
+          <ion-card-header text-center>
+            <h2>{{hotel.nom}}</h2>
+            <ion-item>
+              <button ion-button full default (click)="getMonumentList(hotel)">Monuments</button>
+            </ion-item>
+          </ion-card-header>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </ion-card>
+
+  <ng-template #noHotel>
+    <ion-card>
+      <ion-card-content text-center>
+        <p>Aucun résultat</p>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+
+</ion-content>

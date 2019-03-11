@@ -1,0 +1,13 @@
+delete the "list" folder in "pages"
+
+deleted line 7 from app.module.ts
+
+add 
+"ionic:build": "ionic-app-scripts build",  
+"ionic:serve": "ionic-app-scripts serve"
+to package.json
+
+npm run ionic:build --prod
+
+
+
